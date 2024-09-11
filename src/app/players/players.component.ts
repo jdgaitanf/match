@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
 import { playersService } from './players.service';
+import { NewPlayerComponent } from "./new-player/new-player.component";
 
 @Component({
   selector: 'app-players',
   standalone: true,
-  imports: [],
+  imports: [NewPlayerComponent],
   templateUrl: './players.component.html',
   styleUrl: './players.component.css',
 })
 export class playersComponent {
-  constructor(private playersService: playersService) {
+
+  isAddingPlayer = false;
+  constructor(private playersService: playersService) {}
+
+  get players() {
+    return this.playersService.getAllplayers();
   }
 
-  get players(){
-    return this.playersService.getAllplayers();
+  onAddPlayer() {
+    this.isAddingPlayer = true;
   }
 }
