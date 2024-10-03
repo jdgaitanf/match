@@ -52,7 +52,6 @@ export class playersService {
   }
 
   removePlayer(playerId: string) {
-
     this.players = this.players.filter((player) => player.id !== playerId)
   }
 }

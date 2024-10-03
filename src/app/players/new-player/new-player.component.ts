@@ -26,8 +26,5 @@ export class NewPlayerComponent {
     this.playersService.addPlayer(this.enteredPreferredName);
     this.close.emit();
   }
-  onRemovePlayer(playerId: string) {
-    this.playersService.removePlayer(playerId);
-    this.close.emit();
-  }
+
 }

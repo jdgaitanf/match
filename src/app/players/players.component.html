@@ -4,7 +4,7 @@
 <section id="players">
     <ul>
       @for (person of players; track person.id){
-        <li>
+        <li [class.active]="isPlayerSelected(person.id)" (click)="onChangeStatus(person.id)">
           <p>{{ person.preferredName }}</p>
           <button (click)="onRemovePlayer(person.id)">-</button>
         </li>

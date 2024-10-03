@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { playersService } from './players.service';
-import { NewPlayerComponent } from "./new-player/new-player.component";
+import { matchService } from '../match/match.service';
+import { NewPlayerComponent } from './new-player/new-player.component';
 
 @Component({
   selector: 'app-players',
@@ -14,9 +15,12 @@ export class playersComponent {
 
   constructor(private playersService: playersService) {}
 
+  private matchService = inject(matchService);
+
   get players() {
     return this.playersService.getAllplayers();
   }
+
 
   onAddPlayer() {
     this.isAddingPlayer = true;
@@ -29,4 +33,17 @@ export class playersComponent {
   onRemovePlayer(playerId: string) {
     this.playersService.removePlayer(playerId);
   }
+
+  onChangeStatus(playerId: string) {
+    if (this.matchService.isPlayerPresent(playerId)) {
+      this.matchService.removePlayer(playerId)
+    }else{
+      this.matchService.addPlayer(playerId)
+    }
+  }
+
+  isPlayerSelected(playerId: string){
+    return this.matchService.isPlayerPresent(playerId);
+  }
+
 }
