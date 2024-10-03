@@ -1,13 +1,15 @@
 @if (isAddingPlayer) {
-  <app-new-player/>
+<app-new-player (close)="onCloseAddPlayer()"/>
 }
+<section id="players">
+    <ul>
+      @for (person of players; track person.id){
+        <li>
+          <p>{{ person.preferredName }}</p>
+          <button (click)="onRemovePlayer(person.id)">-</button>
+        </li>
+      }
+    </ul>
 
-<ul>
-  @for (person of players; track person.id){
-    <li>
-      <p>{{person.preferredName}}</p>
-    </li>
-  }
-</ul>
-
-<button (click)="onAddPlayer()">+</button>
+    <button (click)="onAddPlayer()" class="floating-btn">+</button>
+</section>

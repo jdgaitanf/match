@@ -1,0 +1,73 @@
+/* Basic styles for the unordered list */
+.floating-btn {
+  width: 80px;
+  height: 80px;
+  background-color: #009879;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  transition: background 0.25s;
+
+
+}
+
+.floating-btn:active {
+  background-color: #007d63;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #1a1a1a;
+  /* Dark background */
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+/* Style for each list item */
+ul li {
+  padding: 15px;
+  /* border-bottom: 1px solid #333;
+  Line separating items */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  /* Light text for contrast */
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the last list item (no border) */
+ul li:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect */
+ul li:hover {
+  background-color: #333;
+  /* Slightly lighter background on hover */
+}
+
+/* Style for the p tag inside each list item */
+ul li p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Example responsive design */
+@media (max-width: 768px) {
+  ul li p {
+    font-size: 16px;
+  }
+}

@@ -1,9 +1,12 @@
 <dialog open>
   <form (ngSubmit)="onSubmit()">
     <p>
-      <label for="title">Preferred Name</label>
-      <input type="text" id="preferred-name" name="preferred-name" />
+      <label for="title">Preferred Name  </label>
+      <input type="text" id="preferred-name" name="preferred-name" [(ngModel)]="enteredPreferredName">
     </p>
+    <button type="submit">Save</button>
+    <button type="button" (click)="onClose()"
+      >Cancel</button>
 
   </form>
 </dialog>

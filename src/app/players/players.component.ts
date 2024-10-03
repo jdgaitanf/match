@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { playersService } from './players.service';
 import { NewPlayerComponent } from "./new-player/new-player.component";
 
@@ -10,8 +10,8 @@ import { NewPlayerComponent } from "./new-player/new-player.component";
   styleUrl: './players.component.css',
 })
 export class playersComponent {
-
   isAddingPlayer = false;
+
   constructor(private playersService: playersService) {}
 
   get players() {
@@ -20,5 +20,13 @@ export class playersComponent {
 
   onAddPlayer() {
     this.isAddingPlayer = true;
+  }
+
+  onCloseAddPlayer() {
+    this.isAddingPlayer = false;
+  }
+
+  onRemovePlayer(playerId: string) {
+    this.playersService.removePlayer(playerId);
   }
 }

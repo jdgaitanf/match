@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class playersService {
@@ -39,5 +39,20 @@ export class playersService {
 
   getAllplayers() {
     return this.players;
+  }
+
+  addPlayer(preferredName: string) {
+    this.players.push({ id: Date.now().toString(), preferredName });
+  }
+
+  getPlayer(playerId: string) {
+    return (
+      this.players.find((player) => player.id === playerId)?.preferredName
+    );
+  }
+
+  removePlayer(playerId: string) {
+
+    this.players = this.players.filter((player) => player.id !== playerId)
   }
 }
