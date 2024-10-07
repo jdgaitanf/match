@@ -57,11 +57,12 @@ ul li:last-child {
   border-bottom: none;
 }
 
-/* Hover effect */
+/* Hover effect
 ul li:hover {
-  background-color: #333;
-  /* Slightly lighter background on hover */
+  background-color: #616161;
+   Slightly lighter background on hover
 }
+*/
 
 /* Style for the p tag inside each list item */
 ul li p {

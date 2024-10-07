@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class matchService {
   private matchPlayers: string[] = [];
 
-  getAllplayers() {
+  getMatchPlayers() {
     return this.matchPlayers;
   }
 
@@ -13,9 +13,7 @@ export class matchService {
   }
 
   removePlayer(id: string) {
-    this.matchPlayers = this.matchPlayers.filter(
-      (id) => id !== id
-    );
+    this.matchPlayers = this.matchPlayers.filter((playerId) => playerId !== id);
   }
 
   isPlayerPresent (id: string) {
